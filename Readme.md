@@ -1,5 +1,3 @@
-Project details
-
 # Development
 
 ## Software & changes you need to apply
