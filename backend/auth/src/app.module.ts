@@ -8,8 +8,8 @@ import * as Joi from "joi";
   imports: [
     ConfigModule.forRoot({
       validationSchema: Joi.object({
-        NODE_ENV: Joi.string().valid("development", "production", "test").default("development"),
-        //MONGO_URI: Joi.string(),
+        NODE_ENV: Joi.string().valid("development", "production", "test").default("developmenttt"),
+        PASSWORD: Joi.string().not().empty(),
       }),
     }),
   ],
