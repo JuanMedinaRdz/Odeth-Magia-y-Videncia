@@ -8,7 +8,7 @@
 - [NestJs](https://nestjs.com/)
 
 ```
-127.0.0.1 app.dev
+127.0.0.1 magiavidencia.dev
 ```
 
 ## Execution
@@ -19,4 +19,4 @@ on the root folder, open a terminal and run
 skaffold dev
 ```
 
-under the hood, this command will create a kubernetes cluster containing all services as pods, (databases are also independend services). Services are available on your browser through `app.dev` (except databases. They are only accessible through a service)
+under the hood, this command will create a kubernetes cluster containing all services as pods, (databases are also independend services). Services are available on your browser through `magiavidencia.dev` (except databases. They are only accessible through a service)
