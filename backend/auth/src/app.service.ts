@@ -20,4 +20,8 @@ export class AppService {
       access_token: await this.jwtService.signAsync(payload),
     };
   }
+
+  setPassword(pwd: string): void {
+    this.admin.password = pwd;
+  }
 }

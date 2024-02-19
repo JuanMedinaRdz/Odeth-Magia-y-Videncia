@@ -14,7 +14,7 @@ export class UserDTO {
   name: string;
 
   @ApiProperty({
-    description: "Username",
+    description: "Password",
     example: "My-$upp3r-Secret-pa$$w0rd",
     type: String,
   })

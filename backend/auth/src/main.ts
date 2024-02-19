@@ -11,7 +11,6 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   const configService = app.get(ConfigService);
   app.enableCors();
-  app.set("trust proxy", true);
   app.setGlobalPrefix(GLOBAL_PREFIX);
   app.useGlobalPipes(new ValidationPipe());
 
@@ -20,6 +19,18 @@ async function bootstrap() {
     const config = new DocumentBuilder()
       .setTitle("Auth microservice")
       .setDescription("This service is meant to log in to admin dashboard")
+      .setVersion("1.0")
+      .addBearerAuth(
+        {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+          description: "Login to get an access token",
+          name: "Authorization",
+          in: "header",
+        },
+        "Authorization",
+      )
       .build();
     const doc = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup(`${GLOBAL_PREFIX}/docs`, app, doc);
