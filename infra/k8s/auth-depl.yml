@@ -18,6 +18,8 @@ spec:
           env:
             - name: NODE_ENV
               value: "development"
+            - name: JWT_SECRET
+              value: "my-deployment-secret-"
 
 ---
 apiVersion: v1
