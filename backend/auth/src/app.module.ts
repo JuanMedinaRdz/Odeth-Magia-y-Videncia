@@ -3,6 +3,8 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { ConfigModule } from "@nestjs/config";
 import * as Joi from "joi";
+import { JwtModule } from "@nestjs/jwt";
+import { UserController } from './user/user.controller';
 
 @Module({
   imports: [
@@ -12,8 +14,13 @@ import * as Joi from "joi";
         PASSWORD: Joi.string().not().empty(),
       }),
     }),
+    JwtModule.register({
+      global: true,
+      secret: "my-super.jwt-secret",
+      signOptions: { expiresIn: "10m" },
+    }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, UserController],
   providers: [AppService],
 })
 export class AppModule {}

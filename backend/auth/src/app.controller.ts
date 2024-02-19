@@ -1,17 +1,16 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, ForbiddenException, Post } from "@nestjs/common";
 import { AppService } from "./app.service";
 import { UserDTO } from "./dto/user.dto";
-
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Post("login")
-  login(@Body() user: UserDTO): boolean {
+  async login(@Body() user: UserDTO): Promise<{ access_token: string }> {
     try {
-      return this.appService.validateUser(user);
+      return await this.appService.validateUser(user);
     } catch (error) {
-      return false;
+      throw new ForbiddenException();
     }
   }
 }
