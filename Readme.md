@@ -20,3 +20,6 @@ skaffold dev
 ```
 
 under the hood, this command will create a kubernetes cluster containing all services as pods, (databases are also independend services). Services are available on your browser through `magiavidencia.dev` (except databases. They are only accessible through a service)
+
+# Branch Policy
+your_name/feature
