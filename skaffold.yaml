@@ -16,3 +16,13 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
+    - image: magiavidencia/admin
+      context: frontend/admin-dashboard
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.ts"
+            dest: .
+          - src: "**/*.tsx"
+            dest: .
