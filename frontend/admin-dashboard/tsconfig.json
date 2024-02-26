@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@login/*": ["./*"]
+      "@shared/*": ["./shared/*"],
+      "@public/*": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
