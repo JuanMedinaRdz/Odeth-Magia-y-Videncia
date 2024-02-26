@@ -1,5 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import type { State } from "./types";
+import { AppError } from "@pipeline/AppError";
+import { CustomError } from "@pipeline/types";
 
 const initialState: State = {
   credentials: {
@@ -23,7 +25,7 @@ export const { actions, reducer } = createSlice({
       state.loading = true;
       state.error = undefined;
     },
-    loginError: (state: State, action: PayloadAction<string>) => {
+    loginError: (state: State, action: PayloadAction<CustomError>) => {
       state.loading = false;
       state.error = action.payload;
     },

@@ -21,6 +21,7 @@
       "@shared/*": ["./shared/*"],
       "@public/*": ["./public/*"],
       "@store/*": ["./store/*"],
+      "@pipeline/*": ["./features/pipeline/*"],
       "@features/*": ["./features/*"]
     }
   },

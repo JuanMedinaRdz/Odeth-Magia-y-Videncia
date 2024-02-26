@@ -1,3 +1,5 @@
+import { CustomError } from "@pipeline/types";
+
 export type Credentials = {
   user: string;
   password: string;
@@ -6,5 +8,5 @@ export type Credentials = {
 export type State = {
   credentials: Credentials;
   loading: boolean;
-  error?: string;
+  error?: CustomError;
 };

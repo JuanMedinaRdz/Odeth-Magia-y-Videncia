@@ -2,33 +2,49 @@ import { call, put, select, takeLatest } from "redux-saga/effects";
 import { getLoginState } from "./selectors";
 import { actions } from "./slicer";
 import type { State } from "./types";
+import { post } from "@pipeline/request";
+import type { Config, CustomError } from "@pipeline/types";
+import { AppError } from "@pipeline/AppError";
+import { LOGIN_PATH } from "./constants";
 
-//this function will be replaced with a propper fetch call
-export const validateUser = async () =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("foo");
-    }, 5000);
-  });
+const getError = (reason: string): CustomError => {
+  return {
+    messages: [reason],
+    error: "login error",
+    statusCode: 402,
+  };
+};
 
 function* validateLogin() {
   try {
     const { credentials }: State = yield select(getLoginState);
 
     if (credentials.user.length === 0) {
-      yield put(actions.loginError("Invalid username"));
+      yield put(actions.loginError(getError("Invalid username")));
       return;
     }
 
     if (credentials.password.length === 0) {
-      yield put(actions.loginError("Invalid password"));
+      yield put(actions.loginError(getError("Invalid password")));
       return;
     }
 
-    yield call(validateUser);
+    const { user, password } = credentials;
+
+    const body = { name: user, password: password };
+    const config: Config<typeof body> = {
+      path: LOGIN_PATH,
+      body,
+    };
+    yield call(post, config);
     yield put(actions.success());
-  } catch (error) {
-    yield put(actions.loginError(JSON.stringify(error)));
+  } catch (e) {
+    if (e instanceof AppError) {
+      const { messages, error, statusCode } = e;
+      yield put(actions.loginError({ messages, error, statusCode }));
+    } else {
+      yield put(actions.loginError(getError("Error desconocido")));
+    }
   }
 }
 

@@ -11,6 +11,7 @@ import { gutter } from "@shared/constants";
 import { getUser } from "@features/login/selectors";
 import { actions } from "@features/login/slicer";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
+import ShowError from "./ShowError";
 
 const Inputs = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ const InputFields = () => {
           placeholder="Username"
         />
       </Wrapper>
-      {error !== undefined && <span style={{ color: "red" }}>{error}</span>}
+      {error !== undefined && <ShowError error={error} />}
       <Wrapper>
         <Image
           alt="lock logo"
