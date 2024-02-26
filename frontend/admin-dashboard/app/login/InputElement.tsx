@@ -8,13 +8,9 @@ import eyeSVG from "@public/eye.svg";
 import hideSVG from "@public/hide.svg";
 import { Pink2 } from "@shared/colors";
 import { gutter } from "@shared/constants";
-
-type Props = {
-  username: string;
-  password: string;
-  setUser: (val: string) => void;
-  setPw: (val: string) => void;
-};
+import { getUser } from "@features/login/selectors";
+import { actions } from "@features/login/slicer";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 
 const Inputs = styled.div`
   display: flex;
@@ -43,10 +39,20 @@ const Wrapper = styled.div`
   border: 2px solid ${Pink2};
 `;
 
-const InputFields = (props: Props) => {
+const InputFields = () => {
   const [showP, setShowP] = useState(false);
+  const { creds, loading, error } = useAppSelector(getUser);
+  const dispatch = useAppDispatch();
 
-  const { username, password, setPw, setUser } = props;
+  const setPw = (val: string) => {
+    dispatch(actions.setPassword(val));
+  };
+  const setUser = (val: string) => {
+    dispatch(actions.setUsername(val));
+  };
+
+  if (loading) return <h1>loading...</h1>;
+
   return (
     <Inputs>
       <Wrapper>
@@ -57,11 +63,12 @@ const InputFields = (props: Props) => {
         />
         <Input
           type="text"
-          value={username}
+          value={creds.user}
           onChange={(e) => setUser(e.target.value)}
           placeholder="Username"
         />
       </Wrapper>
+      {error !== undefined && <span style={{ color: "red" }}>{error}</span>}
       <Wrapper>
         <Image
           alt="lock logo"
@@ -70,7 +77,7 @@ const InputFields = (props: Props) => {
         />
         <Input
           type={showP ? "text" : "password"}
-          value={password}
+          value={creds.password}
           onChange={(e) => setPw(e.target.value)}
           placeholder="Password"
         />
