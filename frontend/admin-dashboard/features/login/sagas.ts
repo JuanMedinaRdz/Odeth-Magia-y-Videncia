@@ -33,5 +33,5 @@ function* validateLogin() {
 }
 
 export function* loginSagas() {
-  yield takeLatest(actions.loginError.type, validateLogin);
+  yield takeLatest(actions.validateUser.type, validateLogin);
 }
