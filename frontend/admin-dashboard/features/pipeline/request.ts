@@ -12,7 +12,6 @@ export const post = async (config: Config<any>) => {
         "Content-Type": "application/json",
       },
     });
-    console.log(resp.status, resp.data);
   } catch (error) {
     if (error instanceof AxiosError) {
       throw new AppError(error);
