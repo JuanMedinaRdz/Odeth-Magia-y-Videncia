@@ -3,3 +3,4 @@
 **/dist/**
 backend/**/package-lock.json
 backend/**/.env
+frontend/admin-dashboard/package-lock.json
