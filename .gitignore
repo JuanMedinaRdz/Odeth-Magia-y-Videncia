@@ -4,3 +4,7 @@
 backend/**/package-lock.json
 backend/**/.env
 frontend/admin-dashboard/package-lock.json
+package-lock.json
+frontend/OdethMagia/.vscode/extensions.json
+frontend/OdethMagia/.vscode/launch.json
+frontend/OdethMagia/.vscode/tasks.json
