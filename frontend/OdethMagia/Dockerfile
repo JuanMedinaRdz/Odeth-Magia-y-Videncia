@@ -7,7 +7,7 @@ RUN npm install
 RUN npm install -g @angular/cli
 COPY . .
 #Como corres tu app
-CMD ["ng", "serve", "-o"]
+CMD ["ng", "serve", "--host=0.0.0.0", "--disable-host-check"]
 
 
 
