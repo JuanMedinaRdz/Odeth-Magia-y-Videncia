@@ -24,7 +24,7 @@ spec:
                 name: admin-srv
                 port:
                   number: 3000
-          - path: /myApp
+          - path: /
             pathType: Prefix
             backend:
               service:
