@@ -1,8 +1,8 @@
-import axios, { AxiosError } from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import type { Config } from "./types";
 import { AppError } from "./AppError";
 
-export const post = async (config: Config<any>) => {
+export const post = async (config: Config<any>): Promise<AxiosResponse> => {
   const { path, body } = config;
 
   try {
@@ -12,6 +12,7 @@ export const post = async (config: Config<any>) => {
         "Content-Type": "application/json",
       },
     });
+    return resp;
   } catch (error) {
     if (error instanceof AxiosError) {
       throw new AppError(error);

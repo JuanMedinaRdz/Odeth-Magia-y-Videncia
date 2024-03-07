@@ -11,3 +11,8 @@ export const getUser = createSelector(getLoginState, (state) => {
     loading: state.loading,
   };
 });
+
+export const isLogged = createSelector(
+  getLoginState,
+  (state): boolean => state.isLogged
+);

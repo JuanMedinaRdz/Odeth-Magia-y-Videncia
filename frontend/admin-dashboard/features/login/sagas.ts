@@ -6,6 +6,7 @@ import { post } from "@pipeline/request";
 import type { Config, CustomError } from "@pipeline/types";
 import { AppError } from "@pipeline/AppError";
 import { LOGIN_PATH } from "./constants";
+import { AxiosResponse } from "axios";
 
 const getError = (reason: string): CustomError => {
   return {
@@ -36,8 +37,10 @@ function* validateLogin() {
       path: LOGIN_PATH,
       body,
     };
-    yield call(post, config);
-    yield put(actions.success());
+    const resp: AxiosResponse = yield call(post, config);
+    const { data } = resp;
+
+    yield put(actions.success(data.access_token));
   } catch (e) {
     if (e instanceof AppError) {
       const { messages, error, statusCode } = e;

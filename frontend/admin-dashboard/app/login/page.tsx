@@ -39,15 +39,13 @@ const LoginScreen = () => {
   }, []);
 
   return (
-    <StoreProvider>
-      <Background>
-        <TitleSection>
-          <Title>Magia Videncia</Title>
-          <Role>Administrador</Role>
-        </TitleSection>
-        <CardForm />
-      </Background>
-    </StoreProvider>
+    <Background>
+      <TitleSection>
+        <Title>Magia Videncia</Title>
+        <Role>Administrador</Role>
+      </TitleSection>
+      <CardForm />
+    </Background>
   );
 };
 

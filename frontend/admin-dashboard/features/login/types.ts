@@ -9,4 +9,6 @@ export type State = {
   credentials: Credentials;
   loading: boolean;
   error?: CustomError;
+  isLogged: boolean;
+  token?: string;
 };
