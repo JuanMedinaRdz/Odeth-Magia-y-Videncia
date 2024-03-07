@@ -17,6 +17,7 @@ import {
 import Text from "./Text";
 import { BlueDark, Pink, Pink2 } from "@shared/colors";
 import { Route } from "@shared/types";
+import { useRouter } from "next/navigation";
 
 const Wrapper = styled.div<{ selected: boolean }>`
   display: flex;
@@ -48,6 +49,7 @@ type Props = {
 
 export default function Option(props: Props) {
   const { route, selected, setRoute, notificationNumb } = props;
+  const router = useRouter();
 
   const getImage = (): React.ReactNode => {
     let image = selected ? DashboardSelected : Dashboard;
@@ -77,6 +79,7 @@ export default function Option(props: Props) {
 
   const selectOption = () => {
     setRoute(route);
+    router.push(route.toLocaleLowerCase());
   };
 
   const getBerry = () => {
