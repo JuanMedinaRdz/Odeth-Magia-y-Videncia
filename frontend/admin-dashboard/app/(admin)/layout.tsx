@@ -12,9 +12,9 @@ type Props = {
 const Wrapper = styled.div`
   background-color: ${BlueDark};
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   justify-content: space-between;
+  height: 100%;
+  flex-direction: column;
 `;
 
 export default function DashboardLayout({ children }: Props) {
@@ -23,7 +23,11 @@ export default function DashboardLayout({ children }: Props) {
 
   return (
     <Wrapper>
-      <section>{children}</section>
+      <section
+        style={{ height: "-webkit-fill-available", position: "relative" }}
+      >
+        {children}
+      </section>
       <NavBar />
     </Wrapper>
   );

@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import { Pink } from "@shared/colors";
+import styled, { CSSProp } from "styled-components";
+import { Green, Pink, Pink2 } from "@shared/colors";
 
 const getSize = (size: TextSize): string => {
   switch (size) {
@@ -13,19 +13,45 @@ const getSize = (size: TextSize): string => {
   }
 };
 
-const CustomText = styled.span<{ size: TextSize }>`
+const getColor = (color: TextColor): string => {
+  switch (color) {
+    case "primary":
+      return Pink;
+    case "secondary":
+      return Pink2;
+    case "green":
+      return Green;
+  }
+};
+
+const CustomText = styled.span<TextFormat>`
   font-size: ${({ size }) => getSize(size)};
-  color: ${Pink};
+  color: ${({ color }) => getColor(color)};
+  ${({ styles }) => styles}
 `;
 
 type TextSize = "small" | "medium" | "big";
+type TextColor = "primary" | "secondary" | "green";
+
+type TextFormat = {
+  size: TextSize;
+  color: TextColor;
+  styles?: CSSProp;
+};
 
 type Props = {
   children: React.ReactNode;
   size?: TextSize;
+  color?: TextColor;
+  styles?: CSSProp;
 };
 
 export default function Text(props: Props) {
-  const { children, size } = props;
-  return <CustomText size={size ?? "small"}>{children}</CustomText>;
+  const { children, size = "small", color = "primary", styles } = props;
+
+  return (
+    <CustomText size={size} color={color} styles={styles}>
+      {children}
+    </CustomText>
+  );
 }
