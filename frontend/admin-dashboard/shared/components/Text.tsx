@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Pink } from "@shared/colors";
 
 const getSize = (size: TextSize): string => {
   switch (size) {
@@ -14,6 +15,7 @@ const getSize = (size: TextSize): string => {
 
 const CustomText = styled.span<{ size: TextSize }>`
   font-size: ${({ size }) => getSize(size)};
+  color: ${Pink};
 `;
 
 type TextSize = "small" | "medium" | "big";

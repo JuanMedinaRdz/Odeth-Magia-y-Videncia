@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
@@ -23,15 +24,30 @@ const Wrapper = styled.div<{ selected: boolean }>`
   color: ${({ selected }) => (selected ? Pink2 : Pink)};
   align-items: center;
   width: 100%;
+  position: relative;
   background-color: ${({ selected }) => (selected ? BlueDark : "#282727")};
+`;
+
+const Berry = styled.div`
+  background-color: red;
+  width: 12px;
+  height: 12px;
+  border-radius: 20px;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  justify-content: center;
 `;
 
 type Props = {
   route: Route;
+  selected: boolean;
+  setRoute: (route: Route) => void;
+  notificationNumb?: number;
 };
 
-export default function Option({ route }: Props) {
-  const selected = route === "Agenda";
+export default function Option(props: Props) {
+  const { route, selected, setRoute, notificationNumb } = props;
 
   const getImage = (): React.ReactNode => {
     let image = selected ? DashboardSelected : Dashboard;
@@ -59,8 +75,23 @@ export default function Option({ route }: Props) {
     );
   };
 
+  const selectOption = () => {
+    setRoute(route);
+  };
+
+  const getBerry = () => {
+    if (notificationNumb === undefined) return <></>;
+    if (notificationNumb === 0) return <></>;
+    return (
+      <Berry>
+        <Text>{notificationNumb}</Text>
+      </Berry>
+    );
+  };
+
   return (
-    <Wrapper selected={selected}>
+    <Wrapper onClick={selectOption} selected={selected}>
+      {getBerry()}
       {getImage()}
       <Text>{route}</Text>
     </Wrapper>

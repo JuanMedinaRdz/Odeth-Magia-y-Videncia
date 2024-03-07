@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Option from "./Option";
-import { gutter } from "@shared/constants";
 import { Route } from "@shared/types";
 
 const Footer = styled.footer`
@@ -20,11 +19,20 @@ const Options: Route[] = [
 ];
 
 function NavBar() {
+  const [currentRoute, setcurrentRoute] = useState("Dashboard");
   return (
     <Footer>
-      {Options.map((route: Route) => (
-        <Option key={route} route={route} />
-      ))}
+      {Options.map((route: Route) => {
+        const selected = route === currentRoute;
+        return (
+          <Option
+            setRoute={setcurrentRoute}
+            selected={selected}
+            key={route}
+            route={route}
+          />
+        );
+      })}
     </Footer>
   );
 }
