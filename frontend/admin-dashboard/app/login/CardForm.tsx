@@ -3,8 +3,10 @@ import styled from "styled-components";
 import { BlueDark, Pink, Pink2 } from "@shared/colors";
 import { gutter } from "@shared/constants";
 import InputElement from "./InputElement";
-import { useAppDispatch } from "@store/hooks";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { actions } from "@features/login/slicer";
+import { isLogged } from "@features/login/selectors";
+import { useRouter } from "next/navigation";
 
 const Card = styled.section`
   box-sizing: border-box;
@@ -50,19 +52,23 @@ const Recovery = styled.span`
 
 export const CardForm = () => {
   const dispatch = useAppDispatch();
-
+  const router = useRouter();
   const submit = () => {
     dispatch(actions.validateUser());
   };
-
-  return (
-    <Card>
-      <Avatar />
-      <InputElement />
-      <Buttons>
-        <LoginBtn onClick={submit}>LOGIN</LoginBtn>
-        <Recovery>recuperar contraseña</Recovery>
-      </Buttons>
-    </Card>
-  );
+  const isAdminLogged = useAppSelector(isLogged);
+  if (isAdminLogged) {
+    router.replace("/dashboard");
+    return <></>;
+  } else
+    return (
+      <Card>
+        <Avatar />
+        <InputElement />
+        <Buttons>
+          <LoginBtn onClick={submit}>LOGIN</LoginBtn>
+          <Recovery>recuperar contraseña</Recovery>
+        </Buttons>
+      </Card>
+    );
 };
