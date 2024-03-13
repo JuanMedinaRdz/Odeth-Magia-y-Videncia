@@ -1,0 +1,12 @@
+.navbar {
+    background-color: lightblue; /* Color azul celeste */
+    /* Agrega estilos adicionales según tus necesidades */
+}
+
+.nav-link {
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: darkblue; /* Cambia el color de fondo al pasar el ratón por encima */
+}

@@ -8,6 +8,14 @@ build:
   local:
     push: false
   artifacts:
+    - image: magiavidencia/user-dashboard
+      context: frontend/OdethMagia
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/*"
+            dest: .
     - image: magiavidencia/auth-courses
       context: backend/auth
       docker:
