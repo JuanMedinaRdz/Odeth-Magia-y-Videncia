@@ -1,0 +1,13 @@
+<div class="carousel-container">
+  <div class="carousel">
+    <div class="card" *ngFor="let item of items; let i = index"
+         [class.center]="i === centralIndex" [class.previous]="i === centralIndex - 1" [class.next]="i === centralIndex + 1">
+      <div class="card-content">
+        {{ item.description }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<button (click)="prev()" class="nav-button">←</button>
+<button (click)="next()" class="nav-button">→</button>

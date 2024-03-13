@@ -1,0 +1,60 @@
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 200px; /* Ancho inicial de cada carta */
+  height: 140px; /* Altura inicial de cada carta */
+  margin-right: 20px; /* Margen entre las cartas */
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card.center {
+  width: 300px; /* Ancho de la carta central */
+  height: 200px; /* Altura de la carta central */
+  margin-right: 20px; /* Margen entre la carta central y las demás */
+  z-index: 2; /* Asegura que la carta central esté por encima de las demás */
+}
+
+.card.previous {
+  z-index: 1; /* Asegura que la carta previa esté detrás de la central */
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-button:first-child {
+  left: 10px;
+}
+
+.nav-button:last-child {
+  right: 10px;
+}
