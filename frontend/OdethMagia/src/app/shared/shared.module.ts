@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BiographyComponent } from '../Home/pages/biography/biography.component';
-import { CarouselComponent } from '../Home/pages/carousel/carousel.component';
+import { NewsSectionComponent } from '../Home/pages/news-section/news-section.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
@@ -14,13 +14,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NavbarComponent,
     CommonModule,
     BiographyComponent,
-    CarouselComponent,
+    NewsSectionComponent,
   ],
   exports: [
     NavbarComponent,
     SidebarComponent,
     BiographyComponent,
-    CarouselComponent,
+    NewsSectionComponent
   ]
 })
 export class SharedModule { }
