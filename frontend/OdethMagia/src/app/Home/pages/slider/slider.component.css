@@ -1,0 +1,72 @@
+
+.slider-container {
+  margin: 0 auto; /* Centra horizontalmente el contenedor del slider */
+  max-width: 800px; /* Ancho máximo del contenedor del slider */
+  padding: 20px; /* Espacio alrededor del contenedor del slider, ajusta según sea necesario */
+  position: relative; 
+  overflow: hidden;
+  position: relative;
+  
+  /* 
+  Permite posicionar los botones de navegación */
+}
+
+.slider {
+  display: flex; /* Usamos flexbox para centrar las imágenes */
+  justify-content: center; /* Centramos las imágenes horizontalmente */
+  overflow: hidden; 
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;/* Oculta las imágenes que estén fuera del contenedor */
+}
+
+.item {
+  width: 300px; /* Ancho de las imágenes */
+  height: 300px; /* Altura automática */
+  background-size: cover;
+  background-position: center;
+  animation: fadeEffect 5s infinite alternate;
+  border-radius: 10px;
+  margin: 10px; /* Añade animación de desvanecido */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev-btn {
+  left: 0; /* Posiciona el botón prev en el lado izquierdo */
+}
+
+.next-btn {
+  right: 0; /* Posiciona el botón next en el lado derecho */
+}
+@keyframes fadeEffect {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Media queries para ajustar el slider en diferentes tamaños de pantalla */
+@media screen and (min-width: 768px) {
+  .item {
+    width: 50%; /* En pantallas más grandes, mostrar dos imágenes por fila */
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .item {
+    width: 33.333%; /* En pantallas aún más grandes, mostrar tres imágenes por fila */
+  }
+  
+}

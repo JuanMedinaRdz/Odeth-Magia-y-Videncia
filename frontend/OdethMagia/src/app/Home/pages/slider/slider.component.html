@@ -1,0 +1,9 @@
+<div class="slider-container">
+  <div class="slider" #slider>
+    <!-- Elementos del slider -->
+    <div class="item" *ngFor="let image of slideImages" [style.background-image]="'url(' + image + ')'" ></div>
+  </div>
+  <!-- Botones de navegación del carrusel -->
+  <button class="carousel-btn prev-btn" (click)="moveSlider(-1)">&#10094;</button>
+  <button class="carousel-btn next-btn" (click)="moveSlider(1)">&#10095;</button>
+</div>
