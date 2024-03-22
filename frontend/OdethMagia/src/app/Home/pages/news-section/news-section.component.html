@@ -1,3 +1,14 @@
 <div class="container">
     <app-title [title]="newsTitle"></app-title>
+<div class="container">
+  <div class="slider-outer">
+    <div class="slider">
+      <ng-container *ngFor="let card of newsCards">
+        <div class="news-card">
+          <p>{{ card.text }}</p>
+        </div>
+      </ng-container>
+    </div>
+
+
 </div>

@@ -30,3 +30,18 @@
 }
 
 
+/* Media Query Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    height: auto;
+  }
+
+  .circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .aboutMe-text {
+    font-size: small;
+  }
+}

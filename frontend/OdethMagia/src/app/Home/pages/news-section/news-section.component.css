@@ -1,7 +1,39 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 45vh;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.slider {
+  display: flex;
+  animation: slideAnimation 20s linear infinite; /* Ajusta la duración de la animación según tu preferencia */
+}
+
+
+
+.news-card {
+  flex: 0 0 auto;
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  padding: 50px;
+  margin-right: 20px; /* Espacio entre tarjetas */
+  background-color: #E6CECA; /* Color de fondo de la tarjeta */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
+}
+
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(calc(-300px * 3)); /* Ajusta el valor según el ancho de tus tarjetas y el número de tarjetas visibles */
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .news-card {
+    width: 80%; /* Ajusta el tamaño para dispositivos más pequeños */
+  }
+}
