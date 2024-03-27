@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', sans-serif; /* Cambiar la fuente */
+    font-weight: bold; /* Ajustar el peso de la fuente */
+    /* Otros estilos como tamaño de fuente, espaciado, etc. */
+  }
+  
+  /* Definir estilos para párrafos */
+  p {
+    font-family: 'Helvetica', sans-serif; /* Cambiar la fuente */
+    font-size: 1rem; /* Tamaño de fuente */
+    /* Otros estilos para párrafos */
+  }
+
+  body {
+    background-color: #C2A9A9;
+  }

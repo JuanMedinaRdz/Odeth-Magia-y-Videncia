@@ -1,12 +1,54 @@
 .navbar {
-    background-color: lightblue; /* Color azul celeste */
-    /* Agrega estilos adicionales según tus necesidades */
+  background-color: #282727;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
-.nav-link {
-    transition: background-color 0.3s ease;
+.navbar ul {
+  list-style-type: none;
+  margin: 10;
+  padding: 0;
+  text-align: center;
+  display: flex; 
+  justify-content: space-evenly; 
 }
 
-.nav-link:hover {
-    background-color: darkblue; /* Cambia el color de fondo al pasar el ratón por encima */
+.navbar li {
+  vertical-align: top; 
+}
+
+
+.navbar a {
+  color: #C2A9A9;
+  text-decoration: none;
+  display: block;
+  text-align: center; 
+}
+
+.navbar i {
+  display: block; /* Hace que el ícono sea un bloque */
+  font-size: 15px; /* Ajusta el tamaño del icono según sea necesario */
+  margin-bottom: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.navbar a:hover {
+  color: #D14081;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    bottom: auto; /* Elimina la posición fija en la parte inferior */
+    top: 0; /* Posición fija en la parte superior */
+    width: 100%;
+  }
+
+  .navbar ul {
+    text-align: center; /* Centra los elementos */
+  }
+
+  .navbar li {
+    margin: 0 20px; /* Mayor espacio entre elementos */
+  }
 }

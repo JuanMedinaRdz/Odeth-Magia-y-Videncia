@@ -6,6 +6,7 @@ import { TitleComponent } from "../../../shared/components/title/title.component
 interface NewsCard {
   id: number;
   text: string;
+  imageUrl: string;
 }
 
 @Component({
@@ -25,12 +26,12 @@ export class NewsSectionComponent implements AfterViewInit {
   @ViewChild('slider', { static: true }) slider!: ElementRef;
   
   newsCards: NewsCard[] = [
-    { id: 1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 1111111" },
-    { id: 2, text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 22222222222 " },
-    { id: 3, text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.33333" },
-     { id: 1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 1111111" },
-    { id: 2, text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 22222222222 " },
-    { id: 3, text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.33333" },
+    { id: 1, text: "Consequat aliquip incididunt proident labore commodo ipsum nulla tempor. Ullamco amet laboris et do enim. Pariatur sint ea nostrud veniam commodo enim.", imageUrl: '' },
+    { id: 2, text: "Laboris in incididunt sint anim do dolor velit. Commodo magna minim qui consectetur fugiat proident ipsum commodo labore do irure aliquip. Proident pariatur non mollit sunt veniam. Occaecat tempor laboris minim sint ullamco proident duis exercitation nisi officia irure. Ex cillum laboris non consectetur non.", imageUrl: '' },
+    { id: 3, text: "Labore voluptate laborum velit irure incididunt. Excepteur occaecat sint nostrud esse adipisicing. Consectetur aliquip ut labore fugiat magna magna.", imageUrl: '' },
+     { id: 1, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. 1111111", imageUrl: '' },
+    { id: 2, text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 22222222222 ", imageUrl: '' },
+    { id: 3, text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.33333", imageUrl: '' },
     // Añade más tarjetas según sea necesario
   ];
 

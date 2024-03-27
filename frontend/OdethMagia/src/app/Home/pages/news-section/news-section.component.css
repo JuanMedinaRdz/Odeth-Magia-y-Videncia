@@ -1,6 +1,14 @@
 .container {
   overflow: hidden;
   margin: 10px;
+  
+
+}
+
+.center-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .slider {
@@ -20,6 +28,18 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra de la tarjeta */
 }
 
+.circle-avatar {
+  width: 40px; /* Tamaño del círculo */
+  height: 40px;
+  border-radius: 50%; /* Hacer un círculo */
+  position: absolute; /* Posicionamiento absoluto dentro de la tarjeta */
+  top: 10px; /* Alineación vertical en el centro superior */
+  left: 50%; /* Alineación horizontal en el centro */
+  transform: translateX(-50%); /* Ajuste para centrar horizontalmente */
+  z-index: 1; /* Asegurarse de que esté sobre el texto */
+}
+
+
 @keyframes slideAnimation {
   0% {
     transform: translateX(0);
@@ -35,5 +55,13 @@
 @media (max-width: 768px) {
   .news-card {
     width: 80%; /* Ajusta el tamaño para dispositivos más pequeños */
+  }
+
+  .center-title {
+    width: auto;
+  }
+
+  .container {
+    width: auto;
   }
 }

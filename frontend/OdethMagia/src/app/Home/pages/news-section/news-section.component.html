@@ -1,14 +1,18 @@
+<div class="center-title">
+  <app-title [title]="newsTitle"></app-title>
+</div>
 <div class="container">
-    <app-title [title]="newsTitle"></app-title>
-<div class="container">
-  <div class="slider-outer">
-    <div class="slider">
-      <ng-container *ngFor="let card of newsCards">
-        <div class="news-card">
-          <p>{{ card.text }}</p>
+
+    <div class="container">
+      <div class="slider-outer">
+        <div class="slider">
+          <ng-container *ngFor="let card of newsCards">
+            <div class="news-card" [style.background-image]="'url(' + card.imageUrl + ')'">
+              <div class="circle-avatar"></div>
+              <p>{{ card.text }}</p>
+            </div>
+          </ng-container>
         </div>
-      </ng-container>
-    </div>
 
-
+    
 </div>
